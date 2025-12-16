@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Simulado AZ-204 - Microsoft Azure Developer Associate">
+    <title>Quiz AZ-204 - Microsoft Azure</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1 class="header__title">
+                <svg class="header__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                    <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+                </svg>
+                Quiz AZ-204
+            </h1>
+            <p class="header__subtitle">Microsoft Azure Developer Associate</p>
+        </header>
+
+        <!-- Home Screen -->
+        <div id="homeScreen" class="screen active">
+            <div class="welcome-card">
+                <h2 class="welcome-card__title">Bem-vindo ao Simulado</h2>
+                <p class="welcome-card__description">
+                    Teste seus conhecimentos sobre Microsoft Azure com questões baseadas na certificação AZ-204.
+                </p>
+                
+                <div class="level-selector">
+                    <h3 class="level-selector__title">Selecione o Nível:</h3>
+                    <div id="levelButtons" class="level-buttons"></div>
+                </div>
+
+                <div class="chapter-selector" id="chapterSelector" style="display: none;">
+                    <h3 class="chapter-selector__title">Selecione o Capítulo:</h3>
+                    <div id="chapterButtons" class="chapter-buttons"></div>
+                </div>
+
+                <button id="startQuiz" class="btn btn--primary btn--large" style="display: none;">
+                    Iniciar Quiz
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Quiz Screen -->
+        <div id="quizScreen" class="screen">
+            <div class="progress-bar">
+                <div class="progress-bar__fill" id="progressBar"></div>
+            </div>
+
+            <div class="quiz-info">
+                <span class="quiz-info__item">
+                    <strong>Questão:</strong> <span id="currentQuestion">1</span>/<span id="totalQuestions">0</span>
+                </span>
+                <span class="quiz-info__item">
+                    <strong>Pontuação:</strong> <span id="score">0</span>
+                </span>
+            </div>
+
+            <div class="question-card">
+                <h2 class="question-card__title" id="questionTitle"></h2>
+                <div class="question-card__options" id="optionsContainer"></div>
+            </div>
+
+            <div class="feedback" id="feedback" style="display: none;">
+                <div class="feedback__content">
+                    <div class="feedback__icon" id="feedbackIcon"></div>
+                    <p class="feedback__text" id="feedbackText"></p>
+                </div>
+            </div>
+
+            <div class="quiz-actions">
+                <button id="nextQuestion" class="btn btn--primary" style="display: none;">
+                    Próxima Questão
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Results Screen -->
+        <div id="resultsScreen" class="screen">
+            <div class="results-card">
+                <div class="results-card__header">
+                    <div class="results-card__icon" id="resultsIcon"></div>
+                    <h2 class="results-card__title">Quiz Finalizado!</h2>
+                </div>
+
+                <div class="results-card__stats">
+                    <div class="stat-item">
+                        <span class="stat-item__value" id="finalScore">0</span>
+                        <span class="stat-item__label">Pontuação Final</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-item__value" id="correctAnswers">0</span>
+                        <span class="stat-item__label">Respostas Corretas</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-item__value" id="totalQuestionsResult">0</span>
+                        <span class="stat-item__label">Total de Questões</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-item__value" id="percentageScore">0%</span>
+                        <span class="stat-item__label">Aproveitamento</span>
+                    </div>
+                </div>
+
+                <div class="results-card__message" id="resultsMessage"></div>
+
+                <div class="results-actions">
+                    <button id="reviewAnswers" class="btn btn--secondary">
+                        Revisar Respostas
+                    </button>
+                    <button id="restartQuiz" class="btn btn--primary">
+                        Novo Quiz
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Review Screen -->
+        <div id="reviewScreen" class="screen">
+            <div class="review-header">
+                <h2 class="review-header__title">Revisão de Respostas</h2>
+                <button id="backToResults" class="btn btn--secondary btn--small">
+                    Voltar aos Resultados
+                </button>
+            </div>
+
+            <div id="reviewContainer" class="review-container"></div>
+
+            <div class="review-actions">
+                <button id="backToHome" class="btn btn--primary">
+                    Voltar ao Início
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
