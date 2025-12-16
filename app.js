@@ -228,7 +228,13 @@ class QuizApp {
         });
 
         // Show next button
-        document.getElementById('nextQuestion').style.display = 'flex';
+        const nextButton = document.getElementById('nextQuestion');
+        nextButton.style.display = 'flex';
+        
+        // Scroll suave para mostrar o botão (mobile)
+        setTimeout(() => {
+            nextButton.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'nearest' });
+        }, 400);
     }
 
     showFeedback(isCorrect, selectedExplanation, correctExplanation, correctAnswers = [], options = []) {
